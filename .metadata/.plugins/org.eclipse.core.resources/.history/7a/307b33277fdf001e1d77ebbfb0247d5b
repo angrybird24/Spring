@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.codehows.mapper.TimeMapper"
+        xmlns="http://mybatis.org/schema/mybatis"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://mybatis.org/schema/mybatis http://mybatis.org/schema/mybatis/mybatis-3-mapper.xsd">
+    <select id="getTime2" resultType="string">
+        SELECT sysdate FROM dual
+    </select>
+</mapper>

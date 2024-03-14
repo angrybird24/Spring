@@ -1,0 +1,9 @@
+package com.codehows.controller;
+
+
+@Controller
+@Log4j
+@RequestMapping("/board/*")
+public class BoardController {
+
+}
