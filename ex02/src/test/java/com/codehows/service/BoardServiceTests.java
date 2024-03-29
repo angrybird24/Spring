@@ -9,60 +9,86 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.codehows.domain.BoardVO;
+import com.codehows.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
-@Log4j 
+@Log4j
 public class BoardServiceTests {
-	@Setter(onMethod_= {@Autowired})
+	
+	@Setter(onMethod_ = {@Autowired})
 	private BoardService service;
 	
-	@Test
+	//¼­ºñ½º ±¸µ¿ ¿©ºÎ È®ÀÎ
+	/*@Test
 	public void testExist() {
 		log.info(service);
 		assertNotNull(service);
-	} 
-
-	@Test
+	}*/
+	
+	
+	//»õ·Î¿î °Ô½Ã¹° Ãß°¡
+	/*@Test
 	public void testRegister() {
+		
 		BoardVO board = new BoardVO();
-		board.setTitle("ìƒˆë¡œ ìž‘ì„±í•˜ëŠ” êµ´111");
-		board.setContent("ìƒˆë¡œ ìž‘ì„±í•˜ëŠ” ëƒ‰11");
-		board.setWriter("newbie1");
+		board.setTitle("»õ·Î ÀÛ¼ºÇÏ´Â ±Û");
+		board.setContent("»õ·Î ÀÛ¼ºÇÏ´Â ³»¿ë");
+		board.setWriter("newbie");
 		
 		service.register(board);
 		
-		log.info("ìƒì„±ëœ ê²Œì‹œë¬¼ì˜ ë²ˆí˜¸ : " + board.getBno());
-	}
+		log.info("»ý¼ºµÈ °Ô½Ã¹°ÀÇ ¹øÈ£ : " + board.getBno());
+	}*/
 	
-	@Test
+	
+	//ÀüÃ¼ °Ô½Ã¹° Ãâ·Â
+	/*@Test
 	public void testGetList() {
-		service.getList().forEach(board-> log.info(board));
-	}
+		
+		service.getList().forEach(board -> log.info(board));
+	}*/
 	
 	
-	@Test
+	//Æ¯Á¤ °Ô½Ã¹° Ãâ·Â
+	/*@Test
 	public void testGet() {
-		log.info(service.get(1L));
-	}
+		
+		log.info(service.get(10L));
+	}*/
 	
-	@Test
+	
+	// Æ¯Á¤ °Ô½Ã¹° »èÁ¦
+	/*@Test
 	public void testDelete() {
-		log.info("REMOVE RESULT : "+ service.remove(2L));
-	}
+		
+		//°Ô½Ã¹° ¹øÈ£ÀÇ Á¸Àç ¿©ºÎ¸¦ È®ÀÎÇÏ°í Å×½ºÆ® ÇÒ °Í
+		log.info("REMOVE RESULT: " + service.remove(9L));
+	}*/
 	
-	@Test	
+	
+	//Æ¯Á¤ °Ô½Ã¹° ¼öÁ¤
+	/*@Test
 	public void testUpdate() {
-		BoardVO board= service.get(1L);
-		if(board == null) {
+		
+		BoardVO board = service.get(11L);
+		
+		if (board == null) {
 			return;
 		}
 		
-		board.setTitle("ì œëª© ìˆ˜ì •í•©ë‹ˆë‹¤. ");
-		log.info("MODIFIED RESULT   "+service.modify(board) );
-	}
+		board.setTitle("Á¦¸ñ ¼öÁ¤ÇÕ´Ï´Ù.");
+		log.info("MODIFY RESULT: " + service.modify(board));
+	}*/
 	
+	@Test
+	public void testGetList() {
+		
+		//service.getList().forEach(board -> log.info(board));
+		service.getList(new Criteria(2,10)).forEach(board -> log.info(board));
+	}
+
 }
